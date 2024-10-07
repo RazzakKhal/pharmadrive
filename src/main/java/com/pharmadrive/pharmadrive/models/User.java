@@ -28,7 +28,7 @@ public class User implements UserDetails {
     private String email;
     private String adress;
     private String password;
-    private MultipartFile carte_vital;
+    private MultipartFile carteVital;
     @Column(name = "created_at")
     @CreationTimestamp(source = SourceType.DB)
     private Instant createdAt;
