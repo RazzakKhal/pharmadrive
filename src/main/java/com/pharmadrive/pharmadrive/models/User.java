@@ -23,20 +23,19 @@ public class User implements UserDetails {
     private Long id;
 
     private String name;
+    private String firstname;
     @Column(unique = true)
     private String email;
-
+    private String adress;
     private String password;
+    private MultipartFile carte_vital;
     @Column(name = "created_at")
     @CreationTimestamp(source = SourceType.DB)
     private Instant createdAt;
     @Column(name = "updated_at")
     @UpdateTimestamp(source = SourceType.DB)
     private Instant updatedAt;
-    @OneToMany(mappedBy = "user")
-    private List<Message> messages;
-    @OneToMany(mappedBy = "user")
-    private List<Rental> rentals;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -66,5 +65,25 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return UserDetails.super.isEnabled();
+    }
+
+    @Override
+    public boolean isUser() {
+        return UserDetails.super.isUser();
+    }
+
+    @Override
+    public boolean isPharma() {
+        return UserDetails.super.isPharma();
+    }
+
+    @Override
+    public boolean isAdmin() {
+        return UserDetails.super.isAdmin();
+    }
+
+    @Override
+    public boolean isDoctor() {
+        return UserDetails.super.isDoctor();
     }
 }
