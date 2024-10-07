@@ -21,7 +21,7 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private String getRole;
     private String name;
     private String firstname;
     @Column(unique = true)
@@ -67,23 +67,5 @@ public class User implements UserDetails {
         return UserDetails.super.isEnabled();
     }
 
-    @Override
-    public boolean isUser() {
-        return UserDetails.super.isUser();
-    }
-
-    @Override
-    public boolean isPharma() {
-        return UserDetails.super.isPharma();
-    }
-
-    @Override
-    public boolean isAdmin() {
-        return UserDetails.super.isAdmin();
-    }
-
-    @Override
-    public boolean isDoctor() {
-        return UserDetails.super.isDoctor();
-    }
+    
 }
