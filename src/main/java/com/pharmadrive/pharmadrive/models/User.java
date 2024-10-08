@@ -1,18 +1,24 @@
 package com.pharmadrive.pharmadrive.models;
 
-import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.time.Instant;
+import java.util.Collection;
+
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.SourceType;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.time.Instant;
-import java.util.Collection;
-import java.util.List;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Index;
+import jakarta.persistence.Table;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 @Table(name="USERS",indexes = @Index(name = "USERS_index", columnList = "email"))
 @Entity
 @NoArgsConstructor
@@ -23,6 +29,11 @@ public class User implements UserDetails {
     private Long id;
 
     private String name;
+
+    private String firstname;
+    
+    private String carteVitale;
+
     @Column(unique = true)
     private String email;
 
@@ -64,4 +75,4 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return UserDetails.super.isEnabled();
     }
-}
+
