@@ -3,6 +3,7 @@ package com.pharmadrive.pharmadrive.services;
 
 import com.pharmadrive.pharmadrive.dtos.fromView.LoginUserDto;
 import com.pharmadrive.pharmadrive.dtos.fromView.RegisterUserDto;
+import com.pharmadrive.pharmadrive.dtos.toView.UserDto;
 import com.pharmadrive.pharmadrive.mappers.UserMapper;
 import com.pharmadrive.pharmadrive.models.User;
 import com.pharmadrive.pharmadrive.repositories.UserRepository;
@@ -44,7 +45,7 @@ public class AuthServiceImpl implements AuthService{
         user.setPassword(bCryptPasswordEncoder.encode(passwordSalter.saltPassword(user.getPassword())));
         userRepository.save(user);
         String token = jwtUtil.generateToken(user);
-        return new ApiResponseWithToken<EnumKey>(KeysResponsesEnum.TOKEN_KEY, token).getResponse();
+        return Map.of("token", token);
     }
 
     /**
@@ -60,7 +61,7 @@ public class AuthServiceImpl implements AuthService{
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"la combinaison nom d'utilisateur / mot de passe ne correspond à aucun utlisateur");
         }
         String token = jwtUtil.generateToken(userBdd.get());
-        return new ApiResponseWithToken<EnumKey>(KeysResponsesEnum.TOKEN_KEY, token).getResponse();
+        return Map.of("token", token);
     }
 
     /**

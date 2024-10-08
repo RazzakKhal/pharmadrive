@@ -1,5 +1,9 @@
 package com.pharmadrive.pharmadrive.controllers;
 
+import com.pharmadrive.pharmadrive.dtos.fromView.LoginUserDto;
+import com.pharmadrive.pharmadrive.dtos.fromView.RegisterUserDto;
+import com.pharmadrive.pharmadrive.dtos.toView.UserDto;
+import com.pharmadrive.pharmadrive.services.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
