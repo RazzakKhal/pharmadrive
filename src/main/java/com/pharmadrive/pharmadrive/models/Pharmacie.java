@@ -17,7 +17,7 @@ public class Pharmacie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idPharmacie;
+    private Long id;
 
     @Column(name = "adressPharmacie", nullable = false)
     private String adressPharmacie;
