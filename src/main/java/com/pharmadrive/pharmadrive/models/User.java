@@ -8,7 +8,6 @@ import org.hibernate.annotations.SourceType;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.time.Instant;
 import java.util.Collection;
@@ -22,14 +21,12 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String role;
+
     private String name;
-    private String firstname;
     @Column(unique = true)
     private String email;
-    private String adress;
+
     private String password;
-    private MultipartFile carteVital;
     @Column(name = "created_at")
     @CreationTimestamp(source = SourceType.DB)
     private Instant createdAt;
@@ -67,6 +64,4 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return UserDetails.super.isEnabled();
     }
-
-
 }
