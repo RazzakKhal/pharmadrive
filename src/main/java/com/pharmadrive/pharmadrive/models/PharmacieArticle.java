@@ -21,12 +21,12 @@ public class PharmacieArticle {
 
     @ManyToOne
     @MapsId("idPharmacie")
-    @JoinColumn(name = "idPharmacie", nullable = false)
+    @JoinColumn(name = "id_pharmacie", nullable = false)
     private Pharmacie pharmacie;
 
     @ManyToOne
     @MapsId("idArticle")
-    @JoinColumn(name = "idArticle", nullable = false)
+    @JoinColumn(name = "id_article", nullable = false)
     private Article article;
 
     @Column(nullable = false)

@@ -21,12 +21,12 @@ public class ArticleCommande {
 
     @ManyToOne
     @MapsId("idArticle")
-    @JoinColumn(name = "idArticle", nullable = false)
+    @JoinColumn(name = "id_article", nullable = false)
     private Article article;
 
     @ManyToOne
     @MapsId("idCommande")
-    @JoinColumn(name = "idCommande", nullable = false)
+    @JoinColumn(name = "id_commande", nullable = false)
     private Commande commande;
 
     @Column(nullable = false)
