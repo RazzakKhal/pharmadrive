@@ -20,6 +20,7 @@ public class PrescriptionController {
 
     @Autowired
     PrescriptionService prescriptionService;
+
     @PostMapping("/prescription")
     Map<String, Ordonnance> registerAPrescription(@RequestParam("picture") MultipartFile imageOrdonnance){
         return prescriptionService.createPrescription(imageOrdonnance);
