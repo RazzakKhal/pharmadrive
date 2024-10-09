@@ -23,7 +23,11 @@ public class PrescriptionController {
     PrescriptionService prescriptionService;
 
     @PostMapping("/prescription")
-    Map<String, PrescriptionDto> registerAPrescription(@RequestParam("picture") MultipartFile imageOrdonnance){
+    Map<String, PrescriptionDto> registerAPrescription(@RequestParam(value = "picture", required = false) MultipartFile imageOrdonnance){
+        if (imageOrdonnance == null || imageOrdonnance.isEmpty()) {
+            return Map.of("message", new PrescriptionDto());
+        }
+
         return prescriptionService.createPrescription(imageOrdonnance);
     }
 }
