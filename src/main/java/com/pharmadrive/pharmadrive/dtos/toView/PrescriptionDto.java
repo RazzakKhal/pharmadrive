@@ -6,8 +6,6 @@ public class PrescriptionDto {
 
     private Long id;
     private String imageOrdonnance;
-    private Instant createdAt;
-    private Instant updatedAt;
 
     public PrescriptionDto() {
     }
