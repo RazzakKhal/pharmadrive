@@ -1,5 +1,8 @@
 package com.pharmadrive.pharmadrive.mappers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import com.pharmadrive.pharmadrive.dtos.toView.AllArticlesDto;
@@ -20,6 +23,15 @@ public class AllArticlesMapper {
         return dto;
     }
 
+    public List<AllArticlesDto> toDto(List<Article> articles) {
+        List<AllArticlesDto> list = new ArrayList<>();
+        for (Article article : articles) {
+            AllArticlesDto dto = toDto(article);
+            list.add(dto);
+        }
+        return list;
+    }
+
     public Article toEntity(AllArticlesDto dto) {
         if (dto == null) {
             return null;
@@ -30,5 +42,15 @@ public class AllArticlesMapper {
         article.setPrice(dto.getPrice());
         article.setIsRefundable(dto.getIsRefundable());
         return article;
+
     }
+
+
+
 }
+
+
+
+
+
+
