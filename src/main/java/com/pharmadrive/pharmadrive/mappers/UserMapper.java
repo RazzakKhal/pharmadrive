@@ -1,7 +1,6 @@
 package com.pharmadrive.pharmadrive.mappers;
 
 import com.pharmadrive.pharmadrive.dtos.fromView.LoginUserDto;
-import com.pharmadrive.pharmadrive.dtos.fromView.RegisterUserDto;
 import com.pharmadrive.pharmadrive.dtos.toView.UserDto;
 import com.pharmadrive.pharmadrive.models.User;
 import org.springframework.stereotype.Component;
@@ -9,17 +8,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserMapper {
 
-    public User toEntity(RegisterUserDto registerUserDto){
-        if(registerUserDto == null){
-            return null;
-        }
-        User user = new User();
-        user.setEmail(registerUserDto.getEmail());
-        user.setPassword(registerUserDto.getPassword());
-        user.setName(registerUserDto.getName());
-
-        return user;
-    }
 
     public User toEntity(LoginUserDto loginUserDto){
         if(loginUserDto == null){

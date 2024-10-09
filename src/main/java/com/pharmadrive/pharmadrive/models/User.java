@@ -31,7 +31,7 @@ public class User implements UserDetails {
     private String name;
 
     private String firstname;
-    
+
     private String carteVitale;
 
     @Column(unique = true)
@@ -76,3 +76,4 @@ public class User implements UserDetails {
         return UserDetails.super.isEnabled();
     }
 
+}
