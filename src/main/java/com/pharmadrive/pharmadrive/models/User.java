@@ -31,8 +31,9 @@ public class User implements UserDetails {
     private Long id;
 
     private String name;
+
     private String firstname;
-    
+
     private String carteVitale;
 
     @Column(unique = true)
