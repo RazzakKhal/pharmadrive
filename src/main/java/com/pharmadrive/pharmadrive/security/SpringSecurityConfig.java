@@ -26,8 +26,9 @@ public class SpringSecurityConfig{
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http
                 .csrf(csrf -> csrf.disable())
+                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Ajout de la configuration CORS
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/api/auth/register","/api/auth/login","/upload/**","/swagger-ui/**","/v3/api-docs/**","/hello").permitAll()
+                        .requestMatchers("/api/auth/register","/api/auth/login","/upload/**","/swagger-ui/**","/v3/api-docs/**","/hello","/user/*","by-name/*","/article-commandes/*").permitAll()
                         .anyRequest().authenticated()
 
                 )
