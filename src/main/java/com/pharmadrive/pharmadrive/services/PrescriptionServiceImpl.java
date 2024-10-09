@@ -3,6 +3,8 @@ package com.pharmadrive.pharmadrive.services;
 import java.io.IOException;
 import java.util.Map;
 
+import com.pharmadrive.pharmadrive.dtos.toView.PrescriptionDto;
+import com.pharmadrive.pharmadrive.mappers.PrescriptionMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -22,11 +24,14 @@ public class PrescriptionServiceImpl implements PrescriptionService{
     @Autowired
     OrdonnanceRepository ordonnanceRepository;
 
+    @Autowired
+    PrescriptionMapper prescriptionMapper;
+
     @Value("${api.url}")
     private String APPLICATION_URL;
 
     @Override
-    public Map<String,Ordonnance> createPrescription(MultipartFile imageOrdonnance){
+    public Map<String, PrescriptionDto> createPrescription(MultipartFile imageOrdonnance){
         Ordonnance ordonnance= new Ordonnance();
         // gérer le traitement de l'ordonnance
         try{
@@ -37,7 +42,7 @@ public class PrescriptionServiceImpl implements PrescriptionService{
         }
 
         ordonnanceRepository.save(ordonnance);
-        return Map.of("ordonnance", ordonnance);
+        return Map.of("ordonnance", prescriptionMapper.toDto(ordonnance));
     }
 
 }

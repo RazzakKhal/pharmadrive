@@ -2,6 +2,7 @@ package com.pharmadrive.pharmadrive.controllers;
 
 import java.util.Map;
 
+import com.pharmadrive.pharmadrive.dtos.toView.PrescriptionDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +23,7 @@ public class PrescriptionController {
     PrescriptionService prescriptionService;
 
     @PostMapping("/prescription")
-    Map<String, Ordonnance> registerAPrescription(@RequestParam("picture") MultipartFile imageOrdonnance){
+    Map<String, PrescriptionDto> registerAPrescription(@RequestParam("picture") MultipartFile imageOrdonnance){
         return prescriptionService.createPrescription(imageOrdonnance);
     }
 }

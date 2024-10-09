@@ -24,7 +24,7 @@ public class Ordonnance {
     private String imageOrdonnance;
 
     @ManyToOne
-    @JoinColumn(name = "idCommande", nullable = false)
+    @JoinColumn(name = "idCommande", nullable = true)
     private Commande commande;  
 
 }

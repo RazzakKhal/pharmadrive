@@ -24,7 +24,7 @@ public class PrescriptionMapper {
         }
         PrescriptionDto prescriptionDto = new PrescriptionDto();
         prescriptionDto.setImageOrdonnance(ordonnance.getImageOrdonnance());
-
+        prescriptionDto.setId(ordonnance.getIdOrdonnance());
         return prescriptionDto;
     }
 }
