@@ -10,6 +10,8 @@ public class UserDto {
     private Long id;
     private String name;
     private String email;
+    private String role;
+    private PharmacieDto pharmacie;
     @JsonProperty("created_at")
     private Instant createdAt;
     @JsonProperty("updated_at")
