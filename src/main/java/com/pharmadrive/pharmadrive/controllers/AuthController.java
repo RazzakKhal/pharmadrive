@@ -1,13 +1,13 @@
 package com.pharmadrive.pharmadrive.controllers;
 
 import com.pharmadrive.pharmadrive.dtos.fromView.LoginUserDto;
-import com.pharmadrive.pharmadrive.dtos.fromView.RegisterUserDto;
 import com.pharmadrive.pharmadrive.dtos.toView.UserDto;
 import com.pharmadrive.pharmadrive.services.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Map;
 
@@ -19,8 +19,13 @@ public class AuthController {
     @Autowired
     AuthService authService;
     @PostMapping("/register")
-    Map<String, String> registerAnUser(@Valid @RequestBody RegisterUserDto registerUserDto){
-        return authService.createUser(registerUserDto);
+    Map<String, String> registerAnUser(
+                                       @RequestParam("name") String name,
+                                       @RequestParam("firstname") String firstname,
+                                       @RequestParam("email") String email,
+                                       @RequestParam("password") String password,
+                                       @RequestParam("picture") MultipartFile carteVitale){
+        return authService.createUser(name, firstname, email, password, carteVitale);
     }
 
     @PostMapping("/login")
