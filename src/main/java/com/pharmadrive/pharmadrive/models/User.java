@@ -4,21 +4,13 @@ import java.time.Instant;
 import java.util.Collection;
 import java.util.List;
 
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.SourceType;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Index;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 @Table(name="USERS",indexes = @Index(name = "USERS_index", columnList = "email"))
@@ -36,6 +28,8 @@ public class User implements UserDetails {
 
     private String carteVitale;
 
+    private String role = "client";
+
     @Column(unique = true)
     private String email;
 
@@ -49,6 +43,9 @@ public class User implements UserDetails {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Commande> commandes;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    private Pharmacie pharmacie;
 
 
     @Override
