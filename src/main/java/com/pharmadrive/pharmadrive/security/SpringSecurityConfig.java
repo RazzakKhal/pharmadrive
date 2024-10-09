@@ -27,7 +27,7 @@ public class SpringSecurityConfig{
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/api/auth/register","/api/auth/login","/upload/**","/swagger-ui/**","/v3/api-docs/**","/hello").permitAll()
+                        .requestMatchers("/api/auth/register","/api/auth/login","/upload/**","/swagger-ui/**","/v3/api-docs/**","/hello","/user/*","by-name/*","/article-commandes/*").permitAll()
                         .anyRequest().authenticated()
 
                 )
