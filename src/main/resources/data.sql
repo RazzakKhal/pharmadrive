@@ -1,8 +1,8 @@
 -- Insertion de trois pharmacies à Montpellier
-INSERT INTO PHARMACIE (adress_pharmacie, nom_pharmacie, numero) VALUES
-('12 Rue de la Loge, 34000 Montpellier', 'Pharmacie de la Comédie', '0467123456'),
-('5 Boulevard du Jeu de Paume, 34000 Montpellier', 'Pharmacie du Jeu de Paume', '0467234567'),
-('25 Rue Foch, 34000 Montpellier', 'Pharmacie Foch', '0467345678');
+INSERT INTO PHARMACIE (adress_pharmacie, nom_pharmacie, numero, picture) VALUES
+('12 Rue de la Loge, 34000 Montpellier', 'Pharmacie de la Comédie', '0467123456', 'http://localhost:3001/upload/pharmacie_picture_1.png'),
+('5 Boulevard du Jeu de Paume, 34000 Montpellier', 'Pharmacie du Jeu de Paume', '0467234567', 'http://localhost:3001/upload/pharmacie_picture_1.png'),
+('25 Rue Foch, 34000 Montpellier', 'Pharmacie Foch', '0467345678', 'http://localhost:3001/upload/pharmacie_picture_1.png');
 
 
 -- Insertion de trois utilisateurs avec le rôle "pharmatist" et liaison avec les pharmacies créées

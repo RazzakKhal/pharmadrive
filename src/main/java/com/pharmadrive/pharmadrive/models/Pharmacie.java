@@ -26,6 +26,8 @@ public class Pharmacie {
     private String nomPharmacie;
 
     @Column(name = "numero", nullable = false)
-    private String numero;  
+    private String numero;
+
+    private String picture;
 
 }

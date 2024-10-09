@@ -11,4 +11,6 @@ public class PharmacieDto {
     private String nomPharmacie;
 
     private String numero;
+
+    private String picture;
 }
