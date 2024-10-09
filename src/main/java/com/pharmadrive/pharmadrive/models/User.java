@@ -10,15 +10,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-<<<<<<< HEAD
 import jakarta.persistence.CascadeType;
-=======
-
-import jakarta.persistence.CascadeType;
-
-
-
->>>>>>> 528bab9a2f248e4888beeee2c0f19e03c90cda98
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
