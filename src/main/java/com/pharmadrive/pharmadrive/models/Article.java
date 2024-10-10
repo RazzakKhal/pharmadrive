@@ -23,4 +23,6 @@ public class Article {
     private Double price;
 
     private Boolean isRefundable; // true si remboursé, false sinon
+
+    private String picture;
 }

@@ -1,10 +1,14 @@
 package com.pharmadrive.pharmadrive.dtos.toView;
 
+import lombok.Data;
+
+
 public class AllArticlesDto {
     private Long id;
     private String nameArticle;
     private Double price;
     private Boolean isRefundable;
+    private String picture;
 
     // Getters and Setters
     public Long getIdArticle() {
@@ -31,6 +35,13 @@ public class AllArticlesDto {
         this.price = price;
     }
 
+    public String getPicture(){
+        return this.picture;
+    }
+
+    public void setPicture(String picture){
+        this.picture = picture;
+    }
     public Boolean getIsRefundable() {
         return isRefundable;
     }

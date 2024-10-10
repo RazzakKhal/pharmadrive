@@ -14,7 +14,7 @@ import com.pharmadrive.pharmadrive.dtos.toView.AllArticlesDto;
 import com.pharmadrive.pharmadrive.services.AllArticlesService;
 @CrossOrigin
 @RestController
-@RequestMapping("/articles")
+@RequestMapping("/api/articles")
 public class AllArticlesController {
 
     @Autowired
