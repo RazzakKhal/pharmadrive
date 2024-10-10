@@ -20,6 +20,7 @@ public class AllArticlesMapper {
         dto.setNameArticle(article.getNameArticle());
         dto.setPrice(article.getPrice());
         dto.setIsRefundable(article.getIsRefundable());
+        dto.setPicture(article.getPicture());
         return dto;
     }
 

@@ -10,3 +10,12 @@ INSERT INTO USERS (name, firstname, role, email, password, pharmacie_id) VALUES
 ('pharmacie1', 'pharmacie1', 'pharmacist', 'pharmacie1@gmail.com', '$2a$10$e2rFL8yYXTxXp1H0GRjIQOTsH.gQnYR/NDbtYhcHx9nVsfZDrUjHa', 1),
 ('pharmacie2', 'pharmacie2', 'pharmacist', 'pharmacie2@gmail.com', '$2a$10$8D/A9D/73t5BAK9ooo1pEeuqvyEABhiGJf74auqKuwtUMPac9aD3O', 2),
 ('pharmacie3', 'pharmacie3', 'pharmacist', 'pharmacie3@gmail.com', '$2a$10$g3e1g.tcZ88MersTk7L5..AelosTGjtNe.HQ1LagkWbBDqgu21USe', 3);
+
+
+
+-- Insertion de 4 articles
+INSERT INTO ARTICLES (name_article, price, is_refundable, picture) VALUES
+('doliprane', '6', '1', 'http://localhost:3001/upload/doliprane.jpeg'),
+('amoxicilline', '9', '1', 'http://localhost:3001/upload/amoxicilline.jpeg'),
+('levemir', '13', '0', 'http://localhost:3001/upload/levemir.jpeg'),
+('smecta', '3', '0', 'http://localhost:3001/upload/smecta.jpeg');
