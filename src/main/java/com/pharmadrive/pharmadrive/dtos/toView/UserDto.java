@@ -9,8 +9,10 @@ import java.time.Instant;
 public class UserDto {
     private Long id;
     private String name;
+    private String firstname;
     private String email;
     private String role;
+    private String carteVitale;
     private PharmacieDto pharmacie;
     @JsonProperty("created_at")
     private Instant createdAt;
