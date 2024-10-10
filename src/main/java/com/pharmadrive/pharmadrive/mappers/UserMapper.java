@@ -36,6 +36,7 @@ public class UserMapper {
         userDto.setRole(user.getRole());
         userDto.setId(user.getId());
         userDto.setFirstname(user.getFirstname());
+        userDto.setCarteVitale(user.getCarteVitale());
 
         if(user.getPharmacie() != null){
             userDto.setPharmacie(pharmacieMapper.toDto(user.getPharmacie()));

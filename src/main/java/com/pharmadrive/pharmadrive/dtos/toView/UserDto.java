@@ -12,6 +12,7 @@ public class UserDto {
     private String firstname;
     private String email;
     private String role;
+    private String carteVitale;
     private PharmacieDto pharmacie;
     @JsonProperty("created_at")
     private Instant createdAt;
