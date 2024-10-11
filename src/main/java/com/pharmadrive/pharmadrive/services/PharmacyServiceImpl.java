@@ -26,4 +26,10 @@ public class PharmacyServiceImpl implements PharmacyService{
 
         return pharmacieMapper.toDto(pharmacies);
     }
+
+    public PharmacieDto getPharmacy(Long id){
+        Pharmacie pharmacie = pharmacieRepository.findById(id).orElseThrow(() -> new RuntimeException("pharmacy non trouvée"));
+
+        return pharmacieMapper.toDto(pharmacie);
+    }
 }
