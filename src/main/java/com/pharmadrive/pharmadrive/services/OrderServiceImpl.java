@@ -1,5 +1,6 @@
 package com.pharmadrive.pharmadrive.services;
 
+import com.pharmadrive.pharmadrive.dtos.fromView.AddPharmacyDto;
 import com.pharmadrive.pharmadrive.dtos.fromView.ArticleChoosenDto;
 import com.pharmadrive.pharmadrive.dtos.fromView.ArticleChoosenDtoList;
 import com.pharmadrive.pharmadrive.dtos.toView.OrderDto;
@@ -7,11 +8,13 @@ import com.pharmadrive.pharmadrive.models.*;
 import com.pharmadrive.pharmadrive.repositories.ArticleCommandeRepository;
 import com.pharmadrive.pharmadrive.repositories.ArticleRepository;
 import com.pharmadrive.pharmadrive.repositories.CommandeRepository;
+import com.pharmadrive.pharmadrive.repositories.PharmacieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class OrderServiceImpl implements OrderService{
@@ -21,6 +24,9 @@ public class OrderServiceImpl implements OrderService{
 
     @Autowired
     ArticleRepository articleRepository;
+
+    @Autowired
+    PharmacieRepository pharmacieRepository;
 
     @Autowired
     ArticleCommandeRepository articleCommandeRepository;
@@ -62,5 +68,15 @@ public class OrderServiceImpl implements OrderService{
         orderDto.setIdCommande(savedCommande.getIdCommande());
 
         return orderDto;
+    }
+
+    public Map<String,String> addPharmacyToOrder(AddPharmacyDto addPharmacyDto){
+        Pharmacie pharmacie = pharmacieRepository.findById(addPharmacyDto.getPharmacyId()).orElseThrow(() -> new RuntimeException("Pharmacy non trouvée"));
+        Commande commande = commandeRepository.findById(addPharmacyDto.getCommandeId()).orElseThrow(() -> new RuntimeException("Commande non trouvée"));
+        commande.setPharmacie(pharmacie);
+        commandeRepository.save(commande);
+
+        return Map.of("response", "commande enregistrée avec succès");
+
     }
 }
