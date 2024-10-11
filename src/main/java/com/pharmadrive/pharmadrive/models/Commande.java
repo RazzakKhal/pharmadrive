@@ -34,7 +34,7 @@ public class Commande {
     private User user;  
 
     @ManyToOne
-    @JoinColumn(name = "idPharmacie", nullable = false)
+    @JoinColumn(name = "idPharmacie", nullable = true)
     private Pharmacie pharmacie;  
 
 }
