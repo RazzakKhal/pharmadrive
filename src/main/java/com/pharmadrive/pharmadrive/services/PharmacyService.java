@@ -7,4 +7,6 @@ import java.util.List;
 public interface PharmacyService {
 
     List<PharmacieDto> getAllPharmacies();
+
+    PharmacieDto getPharmacy(Long id);
 }
