@@ -38,7 +38,7 @@ public class AllArticlesMapper {
             return null;
         }
         Article article = new Article();
-        article.setIdArticle(dto.getIdArticle());
+        article.setIdArticle(dto.getId());
         article.setNameArticle(dto.getNameArticle());
         article.setPrice(dto.getPrice());
         article.setIsRefundable(dto.getIsRefundable());

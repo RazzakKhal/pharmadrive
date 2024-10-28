@@ -1,0 +1,13 @@
+type AllArticlesDto{
+    id: ID
+    nameArticle: String
+    price: Float
+    isRefundable: Boolean
+    picture: String
+}
+
+type Query{
+    articles: [AllArticlesDto]
+}
+
+
